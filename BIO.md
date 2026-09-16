@@ -2,21 +2,21 @@
 
 ## About Me
 
-I'm Alan Jossef Garcia, a software developer passionate about building innovative solutions with modern technologies. I specialize in full-stack development and AI integrations, with a focus on creating meaningful applications that solve real-world problems.
+I'm Alan Jossef Garcia, a network engineer who has made the go ahead switch to a new industry in hopes of becoming an airline pilot at one of his dream legacy carriers.
 
 ### Experience & Skills
 
-- **Languages**: JavaScript, TypeScript, Python, and more
-- **Specializations**: Full-stack development, AI integrations, Claude API projects
-- **Focus Areas**: Web development, automation, and emerging technologies
+- **Languages**: JavaScript, Python, linux, JUNOS, C++, Cisco and more
+- **Specializations**: Full-stack development, AI integrations, Claude API projects, Crew resource management, Commercial Pilo
+- **Focus Areas**: Personal development, automation, emerging technologies, and aviation
 
 ### Current Work
 
-Actively exploring and integrating Claude AI into various projects, building comprehensive documentation and practical implementations.
+Full time stay at home dad/MBA student and part time pilot- Certified Flight Instructor candidate
 
 ### Goals
 
-Continuously learning and growing as a developer while contributing to open-source projects and creating tools that benefit the developer community.
+Continuously learning and growing as a executive business mindset business developer and commercial level pilot.
 
 ---
 

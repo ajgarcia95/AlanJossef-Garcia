@@ -1,9 +1,9 @@
 # FEDERAL RESUME
 
 **ALAN JOSSEF C. GARCIA**
-(808) 509-5432 | alan.garcia1014@yahoo.com
+(***) ***-**** | a*******4@yahoo.com
 Citizenship: U.S. Citizen | Security Clearance: TS/SCI
-Earliest Report Date: April 2026
+
 
 ---
 
@@ -44,7 +44,7 @@ Detail-oriented Implementations Network Engineer and U.S. Navy veteran with TS/S
 ## PROFESSIONAL EXPERIENCE
 
 ### **IMPLEMENTATIONS NETWORK ENGINEER III**
-**Leidos** | Full-time, 40 hours/week | 2025 – Present
+**Leidos** | Full-time, 40 hours/week | 2025 – 2026
 
 - Manage operations of Regional Field Command Office ensuring continuous global network operation across 2,000 trunks and 20,000+ circuits spanning 265 major DoDIN facilities covering 110 million square miles daily
 - Oversee continuous operations across 17 time zones by monitoring, implementing, and managing circuits on various trunks/projects; ensured 99.9% uptime compliance
@@ -138,5 +138,3 @@ Contracting Officer Representative | Cross-Organizational Communications | Custo
 - TS/SCI (Top Secret/Sensitive Compartmented Information) - Active
 
 ---
-
-*This Federal Resume meets the requirements for U.S. Federal Government position applications.*

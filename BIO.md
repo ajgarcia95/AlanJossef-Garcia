@@ -20,4 +20,4 @@ Continuously learning and growing as a executive business mindset business devel
 
 ---
 
-*This is a temporary bio. Last updated: 2026-09-16*
+

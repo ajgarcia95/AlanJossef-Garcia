@@ -1,3 +1,3 @@
 # Skills
 
-Claude skills and configurations.
+Claude skills I write for tasks I repeat, one folder per skill.

@@ -1,3 +1,3 @@
 # Decisions
 
-Architectural and project decisions.
+One short record per decision: the choice, the options I weighed, and why.

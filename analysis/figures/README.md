@@ -1,3 +1,3 @@
 # Figures
 
-Analysis figures and visualizations.
+Charts and images produced by the work in `analysis/`.

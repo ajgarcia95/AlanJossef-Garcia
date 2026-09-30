@@ -22,3 +22,9 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Office lock/temp files
+~$*.xlsx
+~$*.xlsm
+~$*.docx
+~$*.pptx

@@ -1,21 +1,17 @@
 # Prompt Log
 
-A record of AI sessions: what I asked, what came back, and what I had to fix. Newest first.
+Append as I work; never backfill or edit past rows. Newest at the bottom.
 
-<!-- TODO(Alan): fill in the two sessions from September 15 while you still remember them. -->
+| Date | Tool | What I asked | What I got | What I did with it |
+|---|---|---|---|---|
+| 2026-09-15 | <!-- TODO(Alan) --> | | | |
+| 2026-09-15 | <!-- TODO(Alan) --> | | | |
+| 2026-09-29 | Claude | Apply review fixes to repo | AGENTS/CLAUDE/prompt-log scaffolds, folder READMEs, bio moved into README, .gitignore entries | <!-- TODO(Alan) --> |
+| 2026-10-02 | Claude | Start Perfect Competition Stage 1 per the course guide | Empty brief scaffold (headings only), case givens copied to `data/` | <!-- TODO(Alan) --> |
 
-## 2026-09-15 — Session 2
+## Errors caught
 
-- **Tool / model:**
-- **What I asked:**
-- **What I got:**
-- **What I had to fix:**
-- **What I'd do differently:**
+Where a model's output was wrong and how I caught it.
 
-## 2026-09-15 — Session 1
-
-- **Tool / model:**
-- **What I asked:**
-- **What I got:**
-- **What I had to fix:**
-- **What I'd do differently:**
+| Date | Tool | What was wrong | How I caught it |
+|---|---|---|---|

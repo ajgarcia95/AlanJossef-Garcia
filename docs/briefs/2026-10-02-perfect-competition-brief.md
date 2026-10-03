@@ -2,39 +2,23 @@
 type: brief
 engagement: perfect-competition
 capability: marginal-analysis
-date: 2026-10-02            # change to the day you commit your finished brief (and rename the file to match)
+date: 2026-10-02
 status: committed           # committed | superseded
-hypothesis: ""              # one line: your bed counts + the mechanism, copied from the Hypothesis section
+hypothesis: "I predict the optimal mix will be 15 tomato beds, 20 carrot beds, and 25 mesclun beds, because tomatoes yield the highest revenue per bed, but labor penalties after 15 beds cause mesclun and carrots to deliver higher net profit per additional bed"
 ---
 
 # Perfect Competition — engagement brief
 
-<!--
-Stage 1 rules (from the course guide):
-- Half to one page. Your own words; AI may explain the economics or critique, but may not write this.
-- Write "The problem" WITHOUT re-reading the case. If you can't, you don't have it yet.
-- Commit this before you build any model (Stage 2).
-- After committing, run the critique prompt and log it in prompt-log.md:
-  "Name every assumption I left implicit. Name every claim I have not supported.
-   Ask me the three questions a client would ask. Is my hypothesis falsifiable?"
-Delete this comment block when you're done.
--->
-
 ## The problem
 
-<!-- What the farm is deciding, by whom, and what happens if it is decided badly.
-     What is fixed, what is chosen, what limits the choice. -->
+The problem or dilemma that is face is figuring out our source of produce for this upcoming season. The three options that we can plant would be tomatoe, carrot and or mesclun beds all three combined can be no more than 70 beds total, but our max or what we only have is 64 so we can't max out every crop. After a selection to be made in what we decided to harvest we are also not allowed to go back and change which means we would have to absorb any environmental factors that may impact the season and its growth. So we must come up with a solution of what mix of crop bed types will produce the highest marginal return when accounting for revenue per bed, the amount of work/field hours a week per bed, fertilizer and its associated diminishing returns.
 
 ## What I am assuming
 
-<!-- Assumptions you take as given, and which you'd test with more time. -->
-
 ## Hypothesis
 
-<!-- "I expect __ tomato beds, __ carrot beds, __ mesclun beds, because ___."
-     Real quantities. Name the mechanism: revenue per bed, labor intensity,
-     diminishing-returns rates, bed caps, the 64-bed limit, labor hours. -->
+The hypothesis I would "I predict the optimal mix will be 15 tomato beds, 20 carrot beds, and 25 mesclun beds, because tomatoes yield the highest revenue per bed, but labor penalties after 15 beds cause mesclun and carrots to deliver higher net profit per additional bed".
 
 ## How I would know I was wrong
 
-<!-- The model result that would falsify the hypothesis above. -->
+The easiest way to determine if I were wrong would be the negative value of returns on investment if my forecasted value were to fall below a neutral value.

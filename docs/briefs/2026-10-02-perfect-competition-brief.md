@@ -15,6 +15,8 @@ The problem or dilemma that is face is figuring out our source of produce for th
 
 ## What I am assuming
 
+The season in total length will be 36 weeks long with fixed costs of 20,000 for the season. The best available across all crops selection is 64 beds with a total of 720 hours to be estimated/planned for the season. We are also able to utilize temp workers up to 4, at $17.36/hr, 1440 hrs each. Equation to be used to determine labor hours for q beds of one crop is `Labor(q) = q × hrs/wk/bed × 36 × (1 + dim)^q`
+
 ## Hypothesis
 
 The hypothesis I would "I predict the optimal mix will be 15 tomato beds, 20 carrot beds, and 25 mesclun beds, because tomatoes yield the highest revenue per bed, but labor penalties after 15 beds cause mesclun and carrots to deliver higher net profit per additional bed".

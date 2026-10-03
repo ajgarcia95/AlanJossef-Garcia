@@ -24,3 +24,5 @@ The hypothesis I would "I predict the optimal mix will be 15 tomato beds, 20 car
 ## How I would know I was wrong
 
 The easiest way to determine if I were wrong would be the negative value of returns on investment if my forecasted value were to fall below a neutral value.
+
+If the model shows that planting all 64 beds is the most profitable mix, my 60-bed claim fails.

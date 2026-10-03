@@ -19,6 +19,8 @@ The problem or dilemma that is face is figuring out our source of produce for th
 
 The hypothesis I would "I predict the optimal mix will be 15 tomato beds, 20 carrot beds, and 25 mesclun beds, because tomatoes yield the highest revenue per bed, but labor penalties after 15 beds cause mesclun and carrots to deliver higher net profit per additional bed".
 
+**Why 60 beds instead of 64:** As you plant more beds, diminishing returns or labor penalties kick in. If planting the 61st through 64th beds costs more in extra labor or inputs than the extra revenue those 4 beds bring in, the marginal profit is negative. A profit-maximizing farm will stop planting before utilizing all 64 beds
+
 ## How I would know I was wrong
 
 The easiest way to determine if I were wrong would be the negative value of returns on investment if my forecasted value were to fall below a neutral value.

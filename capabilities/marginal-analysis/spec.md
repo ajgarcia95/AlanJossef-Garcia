@@ -41,12 +41,14 @@ The farm is deciding on what combination of beds will ultimately produce the bes
 | `TEMP_HRS` | 1,440 | hrs per temp worker/season | Case scenario, farm parameters |
 | `MAX_TEMPS` | 4 | temp workers (max) | Case scenario, farm parameters |
 | `OTHER_VAR_COST` | 0 | $/season | None in the case scenario; placeholder for future variable costs |
+| `CHECK_PROFIT` | 42,762 | $ | Course Stage 2 published check figure |
+| `CHECK_TOL` | 25 | $ | My chosen tolerance for the profit check |
 
 ## Structure
 
 The workbook has six parts, one sheet each:
 
-1. **Inputs**: the 24 named case numbers from the table above, so nothing is typed into formulas.
+1. **Inputs**: the 26 named case numbers from the table above, so nothing is typed into formulas.
 2. **Cost structure**: labor hours and costs for the chosen mix.
 3. **Marginal-cost schedules**: the cost of each extra bed, for each crop. One separate table per crop (tomatoes, carrots, mesclun). Each table has one row per bed number, q = 1 up to that crop's cap, and these columns: Bed (q), standalone labor hours (`SA_LABOR`), standalone cost (`SA_COST`), marginal cost (`MC`), price, and "Pays?" (yes if MC ≤ price).
 4. **Optimization**: the three bed counts Solver changes (`TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`), and the profit it maximizes. The file opens with the bed counts at 10 / 20 / 30.
@@ -57,7 +59,7 @@ The workbook has six parts, one sheet each:
    4. `TOM_BEDS` + `CAR_BEDS` + `MES_BEDS` ≤ `TOTAL_BEDS`
    5. `TEMPS_NEEDED` ≤ `MAX_TEMPS`
    6. each bed count is a whole number
-   7. `PROFIT` within ±$25 of $42,762
+   7. `PROFIT` within ±`CHECK_TOL` of `CHECK_PROFIT` (i.e. ±$25 of $42,762)
 6. **Summary**: a one-page dashboard showing every output listed under Outputs.
 
 Color coding:

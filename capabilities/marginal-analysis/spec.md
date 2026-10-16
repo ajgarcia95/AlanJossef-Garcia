@@ -54,6 +54,7 @@ The farm is deciding on what combination of beds will ultimately produce the bes
 | `TEMP_RATE` | 17.36 | $/hr | Case scenario, farm parameters |
 | `TEMP_HRS` | 1,440 | hrs per temp worker/season | Case scenario, farm parameters |
 | `MAX_TEMPS` | 4 | temp workers (max) | Case scenario, farm parameters |
+| `OTHER_VAR_COST` | 0 | $/season | None in the case scenario; placeholder for future variable costs |
 
 ## Structure
 
@@ -61,7 +62,7 @@ The farm is deciding on what combination of beds will ultimately produce the bes
 
 The workbook has five parts, one sheet each:
 
-1. **Inputs**: the 23 named case numbers from the table above, so nothing is typed into formulas.
+1. **Inputs**: the 24 named case numbers from the table above, so nothing is typed into formulas.
 2. **Cost structure**: labor hours and costs for the chosen mix.
 3. **Marginal-cost schedules**: the cost of each extra bed, for each crop.
 4. **Optimization**: the three bed counts Solver changes, and the profit it maximizes.
@@ -104,10 +105,10 @@ Add together the labor hours for tomatoes, carrots, and mesclun to get the total
 REVENUE    = TOM_BEDS × TOM_PRICE + CAR_BEDS × CAR_PRICE + MES_BEDS × MES_PRICE
 FERT_COST  = TOM_BEDS × TOM_FERT  + CAR_BEDS × CAR_FERT  + MES_BEDS × MES_FERT
 LABOR_COST = OWN_USED × OWN_RATE + TEMP_LABOR × TEMP_RATE
-PROFIT     = REVENUE − LABOR_COST − FERT_COST − FIXED_COST
+PROFIT     = REVENUE − LABOR_COST − FERT_COST − OTHER_VAR_COST − FIXED_COST
 ```
 
-Multiply the number of beds planted for each crop by its revenue (or price) per bed, then add all three crop revenues together to get total season revenue. Multiply the fertilizer cost per bed for each crop by the number of beds planted of that crop, then sum those costs across all three crops. Subtract all operating expenses (total labor cost, total fertilizer cost, and the $20,000 in fixed costs) from total season revenue. Temps are paid only for the hours they actually work.
+Multiply the number of beds planted for each crop by its revenue (or price) per bed, then add all three crop revenues together to get total season revenue. Multiply the fertilizer cost per bed for each crop by the number of beds planted of that crop, then sum those costs across all three crops. Subtract all operating expenses (total labor cost, total fertilizer cost, any other variable costs (kept at $0 as a placeholder, since the case has none), and the $20,000 in fixed costs) from total season revenue. Temps are paid only for the hours they actually work.
 
 ## Conventions
 

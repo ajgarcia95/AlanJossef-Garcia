@@ -59,6 +59,20 @@ The farm is deciding on what combination of beds will ultimately produce the bes
 
 <!-- Each sheet or region and its purpose: inputs, cost structure, marginal-cost schedules, optimization, checks. -->
 
+The workbook has five parts, one sheet each:
+
+1. **Inputs**: the 23 named case numbers from the table above, so nothing is typed into formulas.
+2. **Cost structure**: labor hours and costs for the chosen mix.
+3. **Marginal-cost schedules**: the cost of each extra bed, for each crop.
+4. **Optimization**: the three bed counts Solver changes, and the profit it maximizes.
+5. **Checks**: pass/fail cells, such as whether beds are 64 or fewer and temps are 4 or fewer.
+
+Color coding:
+
+- Inputs stay plain, with no color.
+- Each crop has its own color wherever crop-specific numbers appear (including the marginal-cost schedules): tomatoes red, carrots orange, mesclun green.
+- Every formula cell is highlighted light yellow, meaning it should not be touched unless needed.
+
 ## Calculation logic
 
 <!-- Formulas in named-range notation. The labor function must include the (1 + DIM)^q term. -->

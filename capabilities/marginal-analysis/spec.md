@@ -77,6 +77,38 @@ Color coding:
 
 <!-- Formulas in named-range notation. The labor function must include the (1 + DIM)^q term. -->
 
+Decision variables (the cells Solver changes): `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`.
+
+**Labor hours per crop**
+
+```
+TOM_LABOR = TOM_BEDS × TOM_HRS × WEEKS × (1 + TOM_DIM) ^ TOM_BEDS
+CAR_LABOR = CAR_BEDS × CAR_HRS × WEEKS × (1 + CAR_DIM) ^ CAR_BEDS
+MES_LABOR = MES_BEDS × MES_HRS × WEEKS × (1 + MES_DIM) ^ MES_BEDS
+```
+
+**Splitting hours between me and temps**
+
+```
+TOTAL_LABOR  = TOM_LABOR + CAR_LABOR + MES_LABOR
+OWN_USED     = MIN(TOTAL_LABOR, OWN_HRS)
+TEMP_LABOR   = MAX(0, TOTAL_LABOR − OWN_HRS)
+TEMPS_NEEDED = ROUNDUP(TEMP_LABOR / TEMP_HRS)
+```
+
+Add together the labor hours for tomatoes, carrots, and mesclun to get the total farm labor hours required. You work the actual total labor hours required by the farm up to a maximum cap of 720 hours. Temp hours equal total farm hours minus your 720 hours, but if total farm hours are 720 or fewer, temp hours are zero. Divide total temp hours by 1,440 hours per worker, and always round fractional results up to the next full worker.
+
+**Costs and profit**
+
+```
+REVENUE    = TOM_BEDS × TOM_PRICE + CAR_BEDS × CAR_PRICE + MES_BEDS × MES_PRICE
+FERT_COST  = TOM_BEDS × TOM_FERT  + CAR_BEDS × CAR_FERT  + MES_BEDS × MES_FERT
+LABOR_COST = OWN_USED × OWN_RATE + TEMP_LABOR × TEMP_RATE
+PROFIT     = REVENUE − LABOR_COST − FERT_COST − FIXED_COST
+```
+
+Multiply the number of beds planted for each crop by its revenue (or price) per bed, then add all three crop revenues together to get total season revenue. Multiply the fertilizer cost per bed for each crop by the number of beds planted of that crop, then sum those costs across all three crops. Subtract all operating expenses (total labor cost, total fertilizer cost, and the $20,000 in fixed costs) from total season revenue. Temps are paid only for the hours they actually work.
+
 ## Conventions
 
 <!-- Rules not visible in the formulas: farmer's 720 hrs used before temps; P&L labor at the blended rate

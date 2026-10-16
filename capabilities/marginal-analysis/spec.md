@@ -110,6 +110,21 @@ PROFIT     = REVENUE − LABOR_COST − FERT_COST − OTHER_VAR_COST − FIXED_C
 
 Multiply the number of beds planted for each crop by its revenue (or price) per bed, then add all three crop revenues together to get total season revenue. Multiply the fertilizer cost per bed for each crop by the number of beds planted of that crop, then sum those costs across all three crops. Subtract all operating expenses (total labor cost, total fertilizer cost, any other variable costs (kept at $0 as a placeholder, since the case has none), and the $20,000 in fixed costs) from total season revenue. Temps are paid only for the hours they actually work.
 
+**Marginal cost per bed (standalone schedules)**
+
+One schedule per crop, for q = 1 up to that crop's cap (`TOM_CAP`, `CAR_CAP`, `MES_CAP`). Shown for tomatoes; carrots and mesclun are identical with `CAR_` and `MES_`.
+
+```
+TOM_SA_LABOR(q) = q × TOM_HRS × WEEKS × (1 + TOM_DIM) ^ q
+TOM_SA_COST(q)  = MIN(TOM_SA_LABOR(q), OWN_HRS) × OWN_RATE
+                + MAX(0, TOM_SA_LABOR(q) − OWN_HRS) × TEMP_RATE
+                + q × TOM_FERT
+TOM_MC(q)       = TOM_SA_COST(q) − TOM_SA_COST(q − 1),   with TOM_SA_COST(0) = 0
+TOM_CROSS       = the last q before TOM_MC(q) first exceeds TOM_PRICE
+```
+
+Marginal cost of the 5th tomato bed is the additional total cost the farm incurs by planting 5 beds of tomatoes instead of 4. Labor plus fertilizer go into it; fixed costs do not. Calculating a crop's schedule as a "standalone" curve means evaluating that crop in complete isolation (e.g., setting Carrot Beds = 0 and Mesclun Beds = 0), so my 720 hours go to that crop first.
+
 ## Conventions
 
 <!-- Rules not visible in the formulas: farmer's 720 hrs used before temps; P&L labor at the blended rate

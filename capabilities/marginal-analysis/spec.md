@@ -9,25 +9,11 @@ built_by:                   # AI tool (or "manual") that generated model.xlsx
 
 # Perfect Competition — model spec
 
-<!--
-Stage 2 rules (from the course guide):
-- You write this spec; AI may critique it for gaps but may not write it.
-- Named-range notation only (e.g. TOM_PRICE), never cell addresses.
-- Test: someone who has never seen the case could build the workbook from this file alone.
-- Commit this BEFORE model.xlsx exists. Commit order is graded.
-- If you explain anything in chat during the build, add it here, commit, and regenerate.
-Delete this comment block when done.
--->
-
 ## Purpose
-
-<!-- Two sentences: the decision this model supports and what it must be able to answer. -->
 
 The farm is deciding on what combination of beds will ultimately produce the best profit. This is determined through a combination of things like labor costs, and revenue from each style bed. The finished model should show us the best mix, overall profit/revenue with the use of properly executed man hours through our own labor as well as hiring temps at a set rate.
 
 ## Inputs
-
-<!-- Every input as a named contract. Choose names and use them the same way everywhere. -->
 
 | Name | Value | Unit | Source (case scenario) |
 |---|---|---|---|
@@ -58,25 +44,30 @@ The farm is deciding on what combination of beds will ultimately produce the bes
 
 ## Structure
 
-<!-- Each sheet or region and its purpose: inputs, cost structure, marginal-cost schedules, optimization, checks. -->
-
-The workbook has five parts, one sheet each:
+The workbook has six parts, one sheet each:
 
 1. **Inputs**: the 24 named case numbers from the table above, so nothing is typed into formulas.
 2. **Cost structure**: labor hours and costs for the chosen mix.
-3. **Marginal-cost schedules**: the cost of each extra bed, for each crop.
-4. **Optimization**: the three bed counts Solver changes, and the profit it maximizes.
-5. **Checks**: pass/fail cells, such as whether beds are 64 or fewer and temps are 4 or fewer.
+3. **Marginal-cost schedules**: the cost of each extra bed, for each crop. One separate table per crop (tomatoes, carrots, mesclun). Each table has one row per bed number, q = 1 up to that crop's cap, and these columns: Bed (q), standalone labor hours (`SA_LABOR`), standalone cost (`SA_COST`), marginal cost (`MC`), price, and "Pays?" (yes if MC ≤ price).
+4. **Optimization**: the three bed counts Solver changes (`TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`), and the profit it maximizes. The file opens with the bed counts at 10 / 20 / 30.
+5. **Checks**: one pass/fail cell for each of these seven checks:
+   1. 0 ≤ `TOM_BEDS` ≤ `TOM_CAP`
+   2. 0 ≤ `CAR_BEDS` ≤ `CAR_CAP`
+   3. 0 ≤ `MES_BEDS` ≤ `MES_CAP`
+   4. `TOM_BEDS` + `CAR_BEDS` + `MES_BEDS` ≤ `TOTAL_BEDS`
+   5. `TEMPS_NEEDED` ≤ `MAX_TEMPS`
+   6. each bed count is a whole number
+   7. `PROFIT` within ±$25 of $42,762
+6. **Summary**: a one-page dashboard showing every output listed under Outputs.
 
 Color coding:
 
 - Inputs stay plain, with no color.
-- Each crop has its own color wherever crop-specific numbers appear (including the marginal-cost schedules): tomatoes red, carrots orange, mesclun green.
-- Every formula cell is highlighted light yellow, meaning it should not be touched unless needed.
+- Each crop has its own color on its column headers and labels only: tomatoes pink, carrots orange, mesclun teal.
+- Every formula cell has a plain light yellow fill, meaning it should not be touched unless needed. Crop colors are never used as a formula cell's fill.
+- On the Checks sheet, a passing check shows green and a failing check shows red. Green and red are used for nothing else.
 
 ## Calculation logic
-
-<!-- Formulas in named-range notation. The labor function must include the (1 + DIM)^q term. -->
 
 Decision variables (the cells Solver changes): `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`.
 
@@ -123,12 +114,11 @@ TOM_MC(q)       = TOM_SA_COST(q) − TOM_SA_COST(q − 1),   with TOM_SA_COST(0)
 TOM_CROSS       = the last q before TOM_MC(q) first exceeds TOM_PRICE
 ```
 
+`TOM_CROSS` is 0 if even the 1st bed's MC exceeds `TOM_PRICE` (the crop never pays), and equals `TOM_CAP` if MC never exceeds `TOM_PRICE` up to the cap. The `(q)` formulas are built as columns of the per-crop tables described under Structure, not as Excel functions.
+
 Marginal cost of the 5th tomato bed is the additional total cost the farm incurs by planting 5 beds of tomatoes instead of 4. Labor plus fertilizer go into it; fixed costs do not. Calculating a crop's schedule as a "standalone" curve means evaluating that crop in complete isolation (e.g., setting Carrot Beds = 0 and Mesclun Beds = 0), so my 720 hours go to that crop first.
 
 ## Conventions
-
-<!-- Rules not visible in the formulas: farmer's 720 hrs used before temps; P&L labor at the blended rate
-     (total labor $ / total hours); how temp hours are paid; rounding; what happens at q = 0 and at caps. -->
 
 - **Costing order:** my own 720 hours (`OWN_HRS`) are used before any temp hours.
 - **Temp pay:** temps are paid only for the hours they actually work (`TEMP_LABOR × TEMP_RATE`), not a full `TEMP_HRS` each.
@@ -143,14 +133,11 @@ Marginal cost of the 5th tomato bed is the additional total cost the farm incurs
 - **Whole beds:** `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS` are whole numbers from 0 up to each crop's cap.
 - **Rounding:** full precision in every calculation; round only what is displayed (dollars to whole numbers, hours to one decimal).
 - **Zero beds:** 0 beds of a crop means 0 labor hours and 0 cost for that crop; no formula may return an error at 0.
+- **Fixed costs are not allocated to crops.** The Summary shows `TOM_PROFIT`, `CAR_PROFIT` and `MES_PROFIT`, then a separate line subtracting `OTHER_VAR_COST` and `FIXED_COST`; together these add up to `PROFIT`.
+- **Named ranges:** every input and every named result is a real Excel named range (Name Manager), and formulas use the names, e.g. `=TOM_BEDS*TOM_PRICE`, never cell addresses like `=B4*C7`.
+- **Starting values:** the workbook opens with `TOM_BEDS` = 10, `CAR_BEDS` = 20, `MES_BEDS` = 30.
 
 ## Validation rules
-
-<!-- Acceptance criteria, written before the build:
-     - Check figures: optimal mix 10 / 20 / 30 (60 beds); season profit $42,762; standalone P ≈ MC crossings ~10 / ~10 / ~6
-     - q = 1 hand calculation (tomatoes: 1 × 2.5 × 36 × 1.10 = 99 hrs)
-     - No error cells; every calculated cell contains a formula
-     - Solver: maximize profit, GRG Nonlinear, integer bed counts, caps, 64 beds, temps ≤ 4; all constraint checks green -->
 
 Acceptance criteria (written before the build):
 
@@ -159,12 +146,12 @@ Acceptance criteria (written before the build):
 3. **Standalone crossings:** `TOM_CROSS` ≈ 10, `CAR_CROSS` ≈ 10, `MES_CROSS` ≈ 6.
 4. **Hand check at q = 1:** `TOM_SA_LABOR(1)` = 1 × 2.5 × 36 × 1.10 = 99 hours.
 5. **No error cells:** no `#REF!`, `#DIV/0!`, `#NAME?` or other errors anywhere, including at 0 beds.
-6. **Formulas, not values:** every calculated cell is a formula referencing the named inputs; no typed-in numbers outside the Inputs sheet.
+6. **Formulas, not values:** every calculated cell is a formula referencing the named inputs; no typed-in numbers outside the Inputs sheet. Allowed exceptions: the three bed counts (Solver changes them) and the bed-number column (1, 2, 3…) in the marginal-cost tables.
 7. **Solver:** objective maximize `PROFIT`; changing cells `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`; method GRG Nonlinear; constraints: beds are integers, `0 ≤ TOM_BEDS ≤ TOM_CAP`, `0 ≤ CAR_BEDS ≤ CAR_CAP`, `0 ≤ MES_BEDS ≤ MES_CAP`, `TOM_BEDS + CAR_BEDS + MES_BEDS ≤ TOTAL_BEDS`, `TEMPS_NEEDED ≤ MAX_TEMPS`. Every constraint-check cell on the Checks sheet shows green (pass).
 
 ## Outputs
 
-<!-- Each result the model must report, by name. -->
+All outputs appear on the Summary sheet:
 
 - Best mix: `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`
 - Season profit, revenue, labor cost, fertilizer cost: `PROFIT`, `REVENUE`, `LABOR_COST`, `FERT_COST`

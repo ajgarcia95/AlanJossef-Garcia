@@ -3,8 +3,8 @@ type: spec
 capability: marginal-analysis
 engagement: perfect-competition
 date: 2026-10-16
-status: draft               # draft | built | audited
-built_by:                   # AI tool (or "manual") that generated model.xlsx
+status: built               # draft | built | audited
+built_by: Claude (Claude Code, Opus 5.5), generated from this spec as committed
 ---
 
 # Perfect Competition — model spec

@@ -152,9 +152,26 @@ Marginal cost of the 5th tomato bed is the additional total cost the farm incurs
      - No error cells; every calculated cell contains a formula
      - Solver: maximize profit, GRG Nonlinear, integer bed counts, caps, 64 beds, temps ≤ 4; all constraint checks green -->
 
+Acceptance criteria (written before the build):
+
+1. **Optimal mix:** `TOM_BEDS` = 10, `CAR_BEDS` = 20, `MES_BEDS` = 30 (60 beds).
+2. **Season profit:** `PROFIT` = $42,762, within a tolerance of ±$25 (allows for rounding in `CAR_HRS` = 0.833). Displayed rounded to whole dollars.
+3. **Standalone crossings:** `TOM_CROSS` ≈ 10, `CAR_CROSS` ≈ 10, `MES_CROSS` ≈ 6.
+4. **Hand check at q = 1:** `TOM_SA_LABOR(1)` = 1 × 2.5 × 36 × 1.10 = 99 hours.
+5. **No error cells:** no `#REF!`, `#DIV/0!`, `#NAME?` or other errors anywhere, including at 0 beds.
+6. **Formulas, not values:** every calculated cell is a formula referencing the named inputs; no typed-in numbers outside the Inputs sheet.
+7. **Solver:** objective maximize `PROFIT`; changing cells `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`; method GRG Nonlinear; constraints: beds are integers, `0 ≤ TOM_BEDS ≤ TOM_CAP`, `0 ≤ CAR_BEDS ≤ CAR_CAP`, `0 ≤ MES_BEDS ≤ MES_CAP`, `TOM_BEDS + CAR_BEDS + MES_BEDS ≤ TOTAL_BEDS`, `TEMPS_NEEDED ≤ MAX_TEMPS`. Every constraint-check cell on the Checks sheet shows green (pass).
+
 ## Outputs
 
 <!-- Each result the model must report, by name. -->
+
+- Best mix: `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS`
+- Season profit, revenue, labor cost, fertilizer cost: `PROFIT`, `REVENUE`, `LABOR_COST`, `FERT_COST`
+- Total labor hours, my hours, temp hours, temps needed: `TOTAL_LABOR`, `OWN_USED`, `TEMP_LABOR`, `TEMPS_NEEDED`
+- Profit per crop: `TOM_PROFIT`, `CAR_PROFIT`, `MES_PROFIT`
+- Crossing bed for each crop: `TOM_CROSS`, `CAR_CROSS`, `MES_CROSS`
+- Blended labor rate: `BLENDED_RATE`
 
 ## Audit findings
 

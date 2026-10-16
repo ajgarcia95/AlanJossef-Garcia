@@ -23,6 +23,8 @@ Delete this comment block when done.
 
 <!-- Two sentences: the decision this model supports and what it must be able to answer. -->
 
+The farm is deciding on what combination of beds will ultimately produce the best profit. This is determined through a combination of things like labor costs, and revenue from each style bed. The finished model should show us the best mix, overall profit/revenue with the use of properly executed man hours through our own labor as well as hiring temps at a set rate.
+
 ## Inputs
 
 <!-- Every input as a named contract. Choose names and use them the same way everywhere. -->

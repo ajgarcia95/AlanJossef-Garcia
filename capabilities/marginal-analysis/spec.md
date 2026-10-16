@@ -31,7 +31,29 @@ The farm is deciding on what combination of beds will ultimately produce the bes
 
 | Name | Value | Unit | Source (case scenario) |
 |---|---|---|---|
-|  |  |  |  |
+| `TOM_PRICE` | 8,800 | $/bed | Case scenario, "The givens" crop table |
+| `CAR_PRICE` | 2,094 | $/bed | Case scenario, "The givens" crop table |
+| `MES_PRICE` | 2,700 | $/bed | Case scenario, "The givens" crop table |
+| `TOM_HRS` | 2.5 | field hrs/week/bed | Case scenario, "The givens" crop table |
+| `CAR_HRS` | 0.833 | field hrs/week/bed | Case scenario, "The givens" crop table |
+| `MES_HRS` | 1.25 | field hrs/week/bed | Case scenario, "The givens" crop table |
+| `TOM_FERT` | 880 | $/bed | Case scenario, "The givens" crop table |
+| `CAR_FERT` | 440 | $/bed | Case scenario, "The givens" crop table |
+| `MES_FERT` | 880 | $/bed | Case scenario, "The givens" crop table |
+| `TOM_DIM` | 0.10 | diminishing-returns rate per bed (10%) | Case scenario, "The givens" crop table |
+| `CAR_DIM` | 0.025 | diminishing-returns rate per bed (2.5%) | Case scenario, "The givens" crop table |
+| `MES_DIM` | 0.0125 | diminishing-returns rate per bed (1.25%) | Case scenario, "The givens" crop table |
+| `TOM_CAP` | 20 | beds (max) | Case scenario, "The givens" crop table |
+| `CAR_CAP` | 20 | beds (max) | Case scenario, "The givens" crop table |
+| `MES_CAP` | 30 | beds (max) | Case scenario, "The givens" crop table |
+| `WEEKS` | 36 | weeks/season | Case scenario, farm parameters |
+| `TOTAL_BEDS` | 64 | beds available | Case scenario, farm parameters |
+| `FIXED_COST` | 20,000 | $/season | Case scenario, farm parameters |
+| `OWN_HRS` | 720 | farmer field hrs/season | Case scenario, farm parameters |
+| `OWN_RATE` | 34.72 | $/hr (implied) | Case scenario, farm parameters |
+| `TEMP_RATE` | 17.36 | $/hr | Case scenario, farm parameters |
+| `TEMP_HRS` | 1,440 | hrs per temp worker/season | Case scenario, farm parameters |
+| `MAX_TEMPS` | 4 | temp workers (max) | Case scenario, farm parameters |
 
 ## Structure
 

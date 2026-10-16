@@ -130,6 +130,20 @@ Marginal cost of the 5th tomato bed is the additional total cost the farm incurs
 <!-- Rules not visible in the formulas: farmer's 720 hrs used before temps; P&L labor at the blended rate
      (total labor $ / total hours); how temp hours are paid; rounding; what happens at q = 0 and at caps. -->
 
+- **Costing order:** my own 720 hours (`OWN_HRS`) are used before any temp hours.
+- **Temp pay:** temps are paid only for the hours they actually work (`TEMP_LABOR × TEMP_RATE`), not a full `TEMP_HRS` each.
+- **Per-crop P&L:** labor is charged to each crop at the blended rate, the same rate for every crop:
+  ```
+  BLENDED_RATE   = LABOR_COST / TOTAL_LABOR      (0 if TOTAL_LABOR = 0)
+  TOM_LABOR_COST = TOM_LABOR × BLENDED_RATE      (same for CAR_, MES_)
+  TOM_PROFIT     = TOM_BEDS × TOM_PRICE − TOM_BEDS × TOM_FERT − TOM_LABOR_COST
+  ```
+  The own/temp split is a farm-level fact, not per crop.
+- **Marginal-cost schedules** are standalone: each crop is evaluated as if it were the only crop planted.
+- **Whole beds:** `TOM_BEDS`, `CAR_BEDS`, `MES_BEDS` are whole numbers from 0 up to each crop's cap.
+- **Rounding:** full precision in every calculation; round only what is displayed (dollars to whole numbers, hours to one decimal).
+- **Zero beds:** 0 beds of a crop means 0 labor hours and 0 cost for that crop; no formula may return an error at 0.
+
 ## Validation rules
 
 <!-- Acceptance criteria, written before the build:

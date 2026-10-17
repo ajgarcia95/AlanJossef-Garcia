@@ -3,7 +3,7 @@ type: spec
 capability: marginal-analysis
 engagement: perfect-competition
 date: 2026-10-16
-status: built               # draft | built | audited
+status: audited             # draft | built | audited
 built_by: Claude (Claude Code, Opus 5.5), generated from this spec as committed
 ---
 
@@ -164,6 +164,18 @@ All outputs appear on the Summary sheet:
 
 ## Audit findings
 
-<!-- Added AFTER the build. For each check (at least 3): what I checked, what I found, what I did,
-     and what it would have caught. Include Solver from 0/0/0 and 20/0/0, and the Farm Profit Lab cross-check.
-     Note where the tomato MC dip appears (near 6 beds) without explaining it. -->
+Audited 2026-10-16 in desktop Excel with Solver.
+
+| # | Check | What I found | What I did | What it would have caught |
+|---|---|---|---|---|
+| 1 | q = 1 by hand (tomatoes) | First tomato row shows 99.0 labor hours; hand calculation 1 × 2.5 × 36 × 1.10 = 99.0. Match. | None needed | A dropped `(1 + DIM)^q` exponent, the most common structural defect |
+| 2 | Cross-check against the Farm Profit Lab | Tomato bed 5: marginal labor cost $6,780.43 in both the Lab and my model (my MC column shows $7,660 because it also includes $880 fertilizer). No discrepancy. | None needed | Errors in the middle of the model, checked against an independent implementation |
+| 3 | Solver from 0/0/0 | Optimal mix 10 tomato / 20 carrot / 30 mesclun, season profit $42,775 | Recorded | A wrong optimum or broken objective |
+| 4 | Solver from 20/0/0 | Same mix (10 / 20 / 30) and same profit ($42,775). No path dependence observed from these two starting points. | Recorded | A local peak mistaken for the answer (GRG Nonlinear stops at the first peak) |
+| 5 | Check figures | Mix 10 / 20 / 30 matches. Profit $42,775 vs published $42,762: $13 off, within my ±$25 tolerance, so check 7 passes. Standalone crossings 10 / 10 / 6 match ~10 / ~10 / ~6. | Kept the tolerance; the $13 is consistent with rounding in `CAR_HRS` = 0.833 | Everything else, in aggregate |
+| 6 | Checks sheet after Solver | All seven checks show PASS in green | None needed | A plan that breaks a cap, the 64-bed limit, the 4-temp limit or whole beds |
+| 7 | Formulas, not pasted values | Spot-checked yellow calculated cells; each contains a formula referencing named inputs, no hardcoded numbers | None needed | A number that is right now but wrong once an input changes |
+
+**Deviation from spec (accepted):** inside the marginal-cost tables, formulas reference the row's bed number and the previous row's cost by cell address (e.g. `=C8-C7`) instead of pure named-range notation. Excel names cannot take a row argument, so this was accepted as functional and noted here as a minor deviation.
+
+**Noted for Stage 3 (not explained here):** tomato marginal cost dips at bed 6 ($7,660 at bed 5, $4,906 at bed 6) before rising again.

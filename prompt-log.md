@@ -29,7 +29,11 @@ Append as I work; never backfill or edit past rows. Newest at the bottom.
 
 ### Reflection
 
-<!-- TODO(Alan): 300 words or fewer, written by me only: where AI helped, where it was wrong, how I verified. -->
+AI provided valuable assistance by conducting a structural review of the analysis, generating data charts, and walking step-by-step through the assignment questions using the exact numbers from my workbook. Throughout this process, AI made no errors; however, rather than assuming the output was correct, I relied on specific verification checks to clear the results.
+
+To verify the model, I performed several hands-on checks myself. In the Stage 2 Excel audit, I manually calculated the initial 99-hour baseline labor requirement by hand. Next, I cross-checked the marginal labor and cost metrics for bed 5 using the Farm Profit Lab tool. Finally, I tested Solver stability by executing optimization runs from two separate initial seed states 0/0/0 and 20/0/0 confirming that both trials consistently converged on the optimal mix of 10 tomato, 20 carrot, and 30 mesclun beds.
+
+Meanwhile, Claude ran a separate set of verification checks in Stage 3. Specifically, Claude handled the recalculations for both the raised-cap scenario and the single-crop scenario to verify how the optimization model behaved under modified capacity limits and constraints. AI was also used to streamline my concepts and ideas to a more presentable and elaborated answers with extensive grammar structure checks.
 
 ## Errors caught
 

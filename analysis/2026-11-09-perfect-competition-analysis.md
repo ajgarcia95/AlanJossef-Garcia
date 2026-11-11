@@ -36,7 +36,7 @@ Figures 2 and 3 show carrots and mesclun still below price at their caps.
 
 ![Mesclun marginal cost against price](figures/mesclun-mc.png)
 
-For carrots and mesclun the cap stops us because the last bed still costs less than its price where as the tomato bed if planted an 11th bed loses money. The 20th bed of carrots costs 1688 and earns 2094 so it makes 406, and our model indicates a 21st bed would add 353. The 30th bed of mesclun costs 2,420 and earns 2700 so it makes 280, and a 31st would add 247.
+For carrots and mesclun the cap stops us because the last bed still costs less than its price where as the tomato bed if planted an 11th bed loses money. The 20th bed of carrots costs 1688 and earns 2094 so it makes 406, and raising `CAR_CAP` to 21 in my workbook raises season profit from $42,775 to $43,128 (+353). The 30th bed of mesclun costs 2,420 and earns 2700 so it makes 280, and raising `MES_CAP` to 31 raises it to $43,022 (+247).
 
 I would buy and plant carrots, mesclun may earn 606 more per bed but operational costs adds 440 more in fertilizer and about an additional 270 in labor because this is required for the total of 16 hours. These costs create the drive in price advantage versus one another but still leaves carrots ahead by about 106.
 

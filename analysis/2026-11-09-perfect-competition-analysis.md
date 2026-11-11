@@ -28,7 +28,7 @@ Tomatoes stop at 10 even though the cap of 20 has room left over (economists cal
 | Total beds | 64 | 60 | 4 | slack |
 | Labor (720 own + 4 temps × 1,440) | 6,480 hrs | 5,277 hrs | 1,203 hrs | slack |
 
-The limits bind that have no room would be carrot and mesclun beds with the tomato beds having room left. Total beds (4 left over) and labor (1,203 hours left) are also slack.
+Only the carrot and mesclun caps bind; everything else has room to spare.
 
 Figures 2 and 3 show carrots and mesclun still below price at their caps.
 

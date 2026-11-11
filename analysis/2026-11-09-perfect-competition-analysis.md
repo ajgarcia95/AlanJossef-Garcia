@@ -50,6 +50,8 @@ When looking at our faced problem our own hours for the season are set at 720 ho
 
 ## 4. Would each crop profit alone, and does it matter?
 
+Source: `model.xlsx` with the bed counts set to one crop at a time (10/0/0, 0/20/0, 0/0/30); profit is the Summary's season profit, which carries the full $20,000 fixed cost. AVC = (labor cost + fertilizer cost) ÷ beds; ATC adds $20,000 ÷ beds.
+
 | Crop alone | Best beds | Profit after full $20,000 fixed | AVC / bed | ATC / bed | Price |
 |---|---|---|---|---|---|
 | Tomatoes | 10 | +$6,176 | $6,182 | $8,182 | $8,800 |

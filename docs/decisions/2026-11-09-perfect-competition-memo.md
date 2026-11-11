@@ -21,4 +21,4 @@ What I'd buy into first if we had the ability too would be increase one more car
 
 ## What would change my answer
 
-From our analysis from the table earlier the most sensitive item we have out the variables would be the mesclun price. If the mesclun price fell about 20%, the best plan would drop from 30 to 21 mesclun beds.
+From the sensitivity table in my analysis the most sensitive item we have out the variables would be the mesclun price. If the mesclun price fell about 20%, the best plan would drop from 30 to 21 mesclun beds.

@@ -64,6 +64,20 @@ The $20,000 fixed overhead should not influence whether you plant carrots or mes
 
 Comparing price versus AVC settles whether a crop is worth planting in the short run. As long as price exceeds AVC, the crop covers its direct growing expenses and contributes cash toward fixed costs. Comparing price versus Marginal Cost (MC) dictates how many beds to plant to maximize profit once production starts, while comparing price versus ATC evaluates long-run economic viability rather than immediate operational decisions.
 
+## Sensitivity
+
+| If this happens… | Best plan | Season profit |
+|---|---|---|
+| Nothing (base) | 10 / 20 / 30 | $42,775 |
+| Tomato price −20% | 8 / 20 / 30 | $26,587 |
+| Carrot price −20% | 10 / 19 / 30 | $34,412 |
+| Mesclun price −20% | 10 / 20 / 21 | $27,780 |
+| Carrot cap +4 | 10 / 24 / 30 | $43,854 |
+| Mesclun cap +4 | 10 / 20 / 34 | $43,555 |
+| Only 3 temps | 9 / 20 / 30 | $42,223 |
+
+Source: best mixes found by Claude re-running my model's formulas across every allowed mix. The mesclun row was checked in `model.xlsx`: at a $2,160 mesclun price, 10/20/21 earns $27,780 vs $26,575 for 10/20/30.
+
 ## Compared with my Stage 1 hypothesis
 
 My original prediction had 15/20/25 was my before model guess which quickly changed to 10/20/30. The thought process originally was the labor penalties were gonna add up quickly and made the empty 4 beds make the most sense without higher level analysis. What was underestimated was how quickly those labor costs were going to climb after we hit anything past our 10th tomato bed. I also thought with mesclun what really caused us to stop was marginal costs, but it is actually the cap set by the scenario. The empty 4 beds ultimately do not provide any input or value which ultimately costs you more if you decide to do anything with more tomato beds. What was not seen at all was the marginal cost dips at 720 hours. This being said once we hit the 720 hours we then revert to using temp hires at half the price, which makes the next bed cheaper for a moment, but marginal cost keeps climbing after that because each new bed needs more hours than the last.

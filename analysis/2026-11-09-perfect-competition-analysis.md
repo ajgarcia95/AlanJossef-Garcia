@@ -46,7 +46,7 @@ Regardless of spending more money on labor or planting more gardens you'll end u
 
 All three curves dip in Figures 1–3: tomatoes at bed 6, carrots at bed 17, mesclun at beds 14–15.
 
-When looking at our faced problem our own hours for the season are set at 720 hours at a rate of 34.72. This is reached once we are on the 5th tomato bed, after which the farm will be forced to start using temp employees at their temp rate which is half of our own hours 17.36. The marginal cost drops at bed 6 even though the physical work increases, because the cost per hour is significantly changed. Carrots dip at bed 17 and mesclun at beds 14–15 for the same reason. This shows marginal cost measures what the next bed costs in dollars, not how hard the work is.
+When looking at our faced problem, in the standalone schedules (each crop planted alone), our own hours for the season are set at 720 hours at a rate of 34.72. This is reached once we are on the 5th tomato bed, after which the farm will be forced to start using temp employees at their temp rate which is half of our own hours 17.36. The marginal cost drops at bed 6 even though the physical work increases, because the cost per hour is significantly changed. Carrots dip at bed 17 and mesclun at beds 14–15 for the same reason. This shows marginal cost measures what the next bed costs in dollars, not how hard the work is.
 
 ## 4. Would each crop profit alone, and does it matter?
 

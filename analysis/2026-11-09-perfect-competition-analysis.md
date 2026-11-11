@@ -8,7 +8,7 @@ model: capabilities/marginal-analysis/model.xlsx
 
 # Perfect Competition — analysis
 
-Optimum from my model: 10 tomato, 20 carrot, 30 mesclun beds; season profit $42,775 (Summary sheet). All marginal-cost figures below come from the Marginal-cost schedules sheet of `model.xlsx`.
+Optimum from my model: 10 tomato, 20 carrot, 30 mesclun beds; season profit $42,775 (Optimization!B8, also on the Summary sheet). All marginal-cost figures below come from the Marginal-cost schedules sheet of `model.xlsx`.
 
 ## 1. Where does the money crop stop, and why?
 
@@ -16,7 +16,7 @@ Figure 1 shows tomato marginal cost against the $8,800 price.
 
 ![Tomato marginal cost against price](figures/tomato-mc.png)
 
-Tomatoes stop at 10 even though the cap of 20 has room left over (economists call this slack). The 11th bed ends up costing us 9,390 but can only bring in 8,800. This means each bed over the 10th will lose money even if the cap is at 20. The stopping point is set by economics: the market sets the price at 8,800 and we can't change that. This puts the farm in a situation where to decide on what quantity of either tomato, carrot and mesclun beds to plant.
+Tomatoes stop at 10 even though the cap of 20 has room left over (economists call this slack). The 11th bed ends up costing us 9,390 (Marginal-cost schedules!D17) but can only bring in 8,800. This means each bed over the 10th will lose money even if the cap is at 20. The stopping point is set by economics: the market sets the price at 8,800 and we can't change that. This puts the farm in a situation where to decide on what quantity of either tomato, carrot and mesclun beds to plant.
 
 ## 2. Which constraints bind, and what would relaxing one be worth?
 
@@ -36,7 +36,7 @@ Figures 2 and 3 show carrots and mesclun still below price at their caps.
 
 ![Mesclun marginal cost against price](figures/mesclun-mc.png)
 
-For carrots and mesclun the cap stops us because the last bed still costs less than its price where as the tomato bed if planted an 11th bed loses money. The 20th bed of carrots costs 1688 and earns 2094 so it makes 406, and raising `CAR_CAP` to 21 in my workbook raises season profit from $42,775 to $43,128 (+353). The 30th bed of mesclun costs 2,420 and earns 2700 so it makes 280, and raising `MES_CAP` to 31 raises it to $43,022 (+247).
+For carrots and mesclun the cap stops us because the last bed still costs less than its price where as the tomato bed if planted an 11th bed loses money. The 20th bed of carrots costs 1688 (Marginal-cost schedules!K26) and earns 2094 so it makes 406, and raising `CAR_CAP` to 21 in my workbook raises season profit from $42,775 to $43,128 (+353). The 30th bed of mesclun costs 2,420 (Marginal-cost schedules!R36) and earns 2700 so it makes 280, and raising `MES_CAP` to 31 raises it to $43,022 (+247).
 
 I would buy and plant carrots, mesclun may earn 606 more per bed but operational costs adds 440 more in fertilizer and about an additional 270 in labor because this is required for the total of 16 hours. These costs create the drive in price advantage versus one another but still leaves carrots ahead by about 106.
 
@@ -46,7 +46,7 @@ Regardless of spending more money on labor or planting more gardens you'll end u
 
 All three curves dip in Figures 1–3: tomatoes at bed 6, carrots at bed 17, mesclun at beds 14–15.
 
-When looking at our faced problem, in the standalone schedules (each crop planted alone), our own hours for the season are set at 720 hours at a rate of 34.72. This is reached once we are on the 5th tomato bed, after which the farm will be forced to start using temp employees at their temp rate which is half of our own hours 17.36. The marginal cost drops at bed 6 even though the physical work increases, because the cost per hour is significantly changed. Carrots dip at bed 17 and mesclun at beds 14–15 for the same reason. This shows marginal cost measures what the next bed costs in dollars, not how hard the work is.
+When looking at our faced problem, in the standalone schedules (each crop planted alone), our own hours for the season are set at 720 hours at a rate of 34.72. This is reached once we are on the 5th tomato bed, after which the farm will be forced to start using temp employees at their temp rate which is half of our own hours 17.36. The marginal cost drops at bed 6 (Marginal-cost schedules!D11 → D12) even though the physical work increases, because the cost per hour is significantly changed. Carrots dip at bed 17 and mesclun at beds 14–15 for the same reason. This shows marginal cost measures what the next bed costs in dollars, not how hard the work is.
 
 ## 4. Would each crop profit alone, and does it matter?
 

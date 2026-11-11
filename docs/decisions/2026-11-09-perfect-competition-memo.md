@@ -11,7 +11,7 @@ evidence: analysis/2026-11-09-perfect-competition-analysis.md
 
 ## The plan
 
-The best plan outcome previously stated would be 10 tomato beds, 20 carrot beds and 30 mesclun beds. Past 10 tomato beds, each extra bed costs more in labor than it sells for, so we stop there. Carrot and mesclun beds still make money right up to the most the farm is allowed to plant, so we plant every bed we're allowed.
+The best plan is 10 tomato beds, 20 carrot beds and 30 mesclun beds. Past 10 tomato beds, each extra bed costs more in labor than it sells for, so we stop there. Carrot and mesclun beds still make money right up to the most the farm is allowed to plant, so we plant every bed we're allowed.
 
 Season profit at this plan: $42,775 (`model.xlsx`, Summary sheet).
 
